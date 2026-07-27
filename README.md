@@ -14,11 +14,14 @@ historial que Claude Code ya guarda en tu disco, y te devuelve un porcentaje por
 /plugin install adherencia-reglas@skill-adherencia-reglas
 ```
 
-Esto es lo que devuelve. Sale del ejemplo que viaja dentro del repositorio, así que se reproduce
-tal cual con `python skills/adherencia-reglas/medir_adherencia.py --sesiones ejemplo/historial
---reglas ejemplo/reglas_ejemplo.json`:
+Esto es lo que devuelve, entero y sin recortar. Sale del ejemplo que viaja dentro del repositorio,
+así que se reproduce con `python skills/adherencia-reglas/medir_adherencia.py --sesiones
+ejemplo/historial --reglas ejemplo/reglas_ejemplo.json`:
 
 ```
+  Ampliando accion(es) de fabrica: test. Tu patron va delante, pero el de fabrica sigue
+  detras: lo que no case con el tuyo se seguira contando con el suyo.
+============================================================================
 ADHERENCIA A LAS REGLAS PROPIAS  --  3 sesiones, 31 acciones
 ============================================================================
   regla                           tocaba  cumplio     tasa  umbral
@@ -29,6 +32,9 @@ ADHERENCIA A LAS REGLAS PROPIAS  --  3 sesiones, 31 acciones
       guia del equipo: si tocas codigo, pasa la suite antes de cerrar
 
 (*) menos de 10 ocasiones: eso no es una tasa, es una anecdota con decimales.
+
+La tasa es de HABITO, no de incumplimiento: una regla puede no aplicar a todos sus
+disparadores. Sirve para decidir que hacer con cada una, no para repartir culpas.
 ```
 
 Ese asterisco es medio paquete. Con cuatro ocasiones no hay tasa que valga, y una herramienta que
@@ -71,6 +77,14 @@ cp -r skill-adherencia-reglas/skills/adherencia-reglas ~/.claude/skills/
 python skills/adherencia-reglas/medir_adherencia.py
 ```
 
+El ejemplo de `ejemplo/` se ejecuta sin que tengas historial propio, y es de donde sale el bloque de
+salida del principio de esta página:
+
+```bash
+python skills/adherencia-reglas/medir_adherencia.py \
+  --sesiones ejemplo/historial --reglas ejemplo/reglas_ejemplo.json
+```
+
 La tercera vía existe porque el instrumento no necesita a Claude Code para funcionar: es un script
 de biblioteca estándar que lee ficheros `.jsonl`, y si lo único que quieres es el número, te lo da
 sin tocar tu configuración ni dejar rastro en ella.
@@ -85,13 +99,27 @@ Cambia `MI-PROYECTO` por el nombre de tu carpeta. Mira qué hay dentro de `~/.cl
 la del proyecto que quieras medir. Deja las comillas puestas: ese nombre lo fabrica Claude Code a
 partir de tu ruta de trabajo y puede traer espacios dentro. Sin argumentos mide todos a la vez.
 
+Estas son las diez, que son todas:
+
 | Opción | Para qué |
 |---|---|
 | `--sesiones RUTA` | qué historial se mide, un proyecto o la raíz que los contiene |
 | `--reglas FICHERO` | tus reglas, si no quieres las de ejemplo |
-| `--por-dia` | la tasa día a día, para ver si sube o baja |
 | `--acciones` | qué acciones reconoció y en qué ficheros, para calibrar tu vocabulario |
+| `--por-dia N` | desglosa los últimos N días, porque una tasa global esconde el día malo |
+| `--curva-ventana` | cómo cambia la tasa según el plazo que le des a la respuesta |
+| `--sensibilidad` | cuánto mueve la cifra cada decisión arbitraria, no solo la ventana |
+| `--respuesta-en-ambito` | exige que la respuesta caiga en el mismo ámbito que el disparador |
+| `--sin-colapsar` | cuenta cada escritura en vez de cada racha de escrituras |
+| `--subagentes` | incluye las sesiones de subagentes, que son otro universo |
 | `--json` | la salida en JSON, para encadenarla con otra cosa |
+
+`--por-dia` lleva número: `--por-dia 7`. Sin él, el programa para y lo dice.
+
+Las dos que más cambian la lectura son `--curva-ventana` y `--sensibilidad`. La primera enseña que
+el plazo que elijas mueve la cifra tanto como el comportamiento que mides. La segunda enseña cuánto
+la mueve cada una de las decisiones que alguien tomó a ojo al construir el instrumento, que es la
+información que casi ninguna herramienta de medida publica sobre sí misma.
 
 La primera vez, `--acciones`.
 
@@ -127,14 +155,20 @@ existe.
 ### Desinstalar
 
 ```bash
-# si la instalaste como plugin
+# si la instalaste como plugin: son DOS comandos, no uno
 /plugin uninstall adherencia-reglas@skill-adherencia-reglas
+/plugin marketplace remove skill-adherencia-reglas
 
 # si copiaste la carpeta
 rm -rf ~/.claude/skills/adherencia-reglas
 ```
 
-No deja nada detrás: ni caché, ni base de datos, ni fichero de estado.
+El segundo comando es el que casi nadie documenta. Desinstalar el plugin lo quita de la lista de
+plugins, pero deja el marketplace registrado y su copia local en la caché que mantiene Claude Code
+en `~/.claude/plugins/cache`, que es suya y no de esta skill.
+
+De la skill en sí no queda nada, porque no escribe nada: ni base de datos, ni fichero de estado, ni
+configuración fuera de su carpeta.
 
 ### Por qué fiarse
 
@@ -154,6 +188,10 @@ memoria del programa; mientras esa copia siga ahí, `test_seguridad.py` se pone 
 
 Parte de esos sabotajes los escribió alguien que no había escrito el código, y son justo los que
 los propios no veían. Un mutador escrito por el autor hereda el punto ciego del autor.
+
+Y viaja un tercer instrumento, `cobertura.py`, que responde a la pregunta que ningún revisor puede
+contestar mirando: qué líneas del programa no ejecuta ni un caso del banco. Usa `trace`, de la
+biblioteca estándar, porque aquí no se instala nada.
 
 ### Requisitos
 
@@ -215,13 +253,27 @@ Replace `MY-PROJECT` with your folder name. Look inside `~/.claude/projects` and
 you want to measure. Keep the quotes: Claude Code builds that name from your working path and it
 can contain spaces. With no arguments it measures every project at once.
 
+These are the ten, which is all of them:
+
 | Option | What for |
 |---|---|
 | `--sesiones PATH` | which history to measure, one project or the root holding them |
 | `--reglas FILE` | your rules, if you do not want the example ones |
-| `--por-dia` | the rate day by day, to see whether it climbs or falls |
 | `--acciones` | which actions it recognised and in which files, to calibrate your vocabulary |
+| `--por-dia N` | breaks down the last N days, because a global rate hides the bad day |
+| `--curva-ventana` | how the rate moves with the window you allow the response |
+| `--sensibilidad` | how much each arbitrary decision moves the figure, not just the window |
+| `--respuesta-en-ambito` | demands the response land in the same scope as the trigger |
+| `--sin-colapsar` | counts every write instead of every run of writes |
+| `--subagentes` | includes subagent sessions, which are a different universe |
 | `--json` | JSON output, to chain it into something else |
+
+`--por-dia` takes a number: `--por-dia 7`. Without it the program stops and says so.
+
+The two that most change the reading are `--curva-ventana` and `--sensibilidad`. The first shows
+that the window you pick moves the figure as much as the behaviour you are measuring. The second
+shows how much each of the decisions someone made by eye while building the instrument moves it,
+which is information almost no measuring tool publishes about itself.
 
 Start with `--acciones`.
 
@@ -257,14 +309,20 @@ what it is for.
 ### Uninstall
 
 ```bash
-# if you installed it as a plugin
+# if you installed it as a plugin: that is TWO commands, not one
 /plugin uninstall adherencia-reglas@skill-adherencia-reglas
+/plugin marketplace remove skill-adherencia-reglas
 
 # if you copied the folder
 rm -rf ~/.claude/skills/adherencia-reglas
 ```
 
-It leaves nothing behind: no cache, no database, no state file.
+The second command is the one almost nobody documents. Uninstalling the plugin drops it from the
+plugin list, but leaves the marketplace registered and its local copy in the cache Claude Code keeps
+at `~/.claude/plugins/cache`, which belongs to Claude Code and not to this skill.
+
+Of the skill itself nothing is left, because it writes nothing: no database, no state file, no
+configuration outside its own folder.
 
 ### Why trust it
 
@@ -286,6 +344,10 @@ the intact copy lives on disk and not in the program's memory; while that copy i
 Some of those sabotages were written by someone who had not written the code, and they are exactly
 the ones the in-house ones could not see. A mutator written by the author inherits the author's
 blind spot.
+
+A third instrument travels with the package, `cobertura.py`, which answers the question no reviewer
+can answer by reading: which lines of the program no test case ever executes. It uses `trace`, from
+the standard library, because nothing gets installed here.
 
 ### Requirements
 
