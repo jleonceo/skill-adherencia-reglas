@@ -30,9 +30,9 @@ Cuenta ocasiones y respuestas.
 Una regla tuya tiene un disparador (escribir un documento, cerrar una jornada, tocar una skill) y
 una acción que debería seguirle. La skill recorre el historial de sesiones que Claude Code ya
 guarda, localiza los disparadores, mira si la acción llegó después y devuelve la fracción. Eso es
-todo, y es deliberado: no juzga si la regla es buena, no juzga si el trabajo estuvo bien hecho, y
-no lee nada que no esté ya en tu disco. Un 20 % puede querer decir que la regla se ignora o puede
-querer decir que la regla está mal escrita, y esa lectura es tuya, no suya.
+todo. No juzga si la regla es buena. No juzga si el trabajo estuvo bien hecho. No lee nada que no
+esté ya en tu disco. Un 20 % puede querer decir que la regla se ignora o puede querer decir que la
+regla está mal escrita: esa lectura es tuya.
 
 ### Instalación
 
@@ -75,9 +75,9 @@ partir de tu ruta de trabajo y puede traer espacios dentro. Sin argumentos mide 
 
 La primera vez, `--acciones`.
 
-Esa vista es la que evita el malentendido más caro. La skill reconoce acciones por vocabulario, y
-el tuyo no tiene por qué parecerse al de nadie: si dices «puerta de salida» donde el ejemplo dice
-«revisar», tus reglas medirán cero para siempre y el cero parecerá incumplimiento. `--acciones`
+Esa vista es la que evita el malentendido más caro. La skill reconoce acciones por vocabulario. El
+tuyo no tiene por qué parecerse al de nadie: si dices «puerta de salida» donde el ejemplo dice
+«revisar», tus reglas medirán cero para siempre y ese cero parecerá incumplimiento. `--acciones`
 enseña qué encontró y en qué ficheros, así que se ve de un vistazo si el problema está en cómo
 describiste la regla o en que de verdad no se cumple.
 
@@ -152,9 +152,9 @@ It counts occasions and responses.
 One of your rules has a trigger (writing a document, closing a working day, touching a skill) and
 an action that should follow it. The skill walks the session history Claude Code already keeps,
 finds the triggers, checks whether the action came after, and returns the fraction. That is all it
-does, and that is deliberate: it does not judge whether the rule is a good rule, it does not judge
-whether the work was any good, and it reads nothing that is not already on your disk. A 20 % may
-mean the rule gets ignored or it may mean the rule is badly written, and that reading is yours.
+does. It does not judge whether the rule is a good rule. It does not judge whether the work was any
+good. It reads nothing that is not already on your disk. A 20 % may mean the rule gets ignored or
+it may mean the rule is badly written: that reading is yours.
 
 ### Install
 
@@ -198,8 +198,8 @@ can contain spaces. With no arguments it measures every project at once.
 Start with `--acciones`.
 
 That view heads off the most expensive misunderstanding. The skill recognises actions by
-vocabulary, and yours need not resemble anyone else's: if you say "exit gate" where the example
-says "review", your rules will measure zero forever and the zero will look like non-compliance.
+vocabulary. Yours need not resemble anyone else's: if you say "exit gate" where the example says
+"review", your rules will measure zero forever and that zero will look like non-compliance.
 `--acciones` shows what it found and in which files, so you can tell at a glance whether the
 problem is how you described the rule or the rule genuinely going unfollowed.
 
