@@ -85,9 +85,9 @@ python skills/adherencia-reglas/medir_adherencia.py \
   --sesiones ejemplo/historial --reglas ejemplo/reglas_ejemplo.json
 ```
 
-La tercera vía existe porque el instrumento no necesita a Claude Code para funcionar: es un script
-de biblioteca estándar que lee ficheros `.jsonl`, y si lo único que quieres es el número, te lo da
-sin tocar tu configuración ni dejar rastro en ella.
+La tercera vía existe porque el instrumento no necesita a Claude Code. Es un script de biblioteca
+estándar que lee ficheros `.jsonl`. Si lo único que quieres es el número, te lo da sin tocar tu
+configuración.
 
 ### Uso
 
@@ -96,11 +96,14 @@ cd skills/adherencia-reglas
 python medir_adherencia.py --sesiones "~/.claude/projects/MI-PROYECTO"
 ```
 
-Cambia `MI-PROYECTO` por el nombre de tu carpeta. Mira qué hay dentro de `~/.claude/projects` y usa
-la del proyecto que quieras medir. Deja las comillas puestas: ese nombre lo fabrica Claude Code a
-partir de tu ruta de trabajo y puede traer espacios dentro. Sin argumentos mide todos a la vez.
+Cambia `MI-PROYECTO` por el nombre de tu carpeta. Mira qué hay dentro de `~/.claude/projects`.
 
-Estas son las diez, que son todas:
+Deja las comillas puestas. Ese nombre lo fabrica Claude Code a partir de tu ruta de trabajo y puede
+traer espacios dentro.
+
+Sin argumentos mide todos los proyectos a la vez.
+
+Estas son las diez opciones, que son todas:
 
 | Opción | Para qué |
 |---|---|
@@ -117,10 +120,11 @@ Estas son las diez, que son todas:
 
 `--por-dia` lleva número: `--por-dia 7`. Sin él, el programa para y lo dice.
 
-Las dos que más cambian la lectura son `--curva-ventana` y `--sensibilidad`. La primera enseña que
-el plazo que elijas mueve la cifra tanto como el comportamiento que mides. La segunda enseña cuánto
-la mueve cada una de las decisiones que alguien tomó a ojo al construir el instrumento, que es la
-información que casi ninguna herramienta de medida publica sobre sí misma.
+Las dos que más cambian la lectura son `--curva-ventana` y `--sensibilidad`.
+
+La primera enseña que el plazo que elijas mueve la cifra tanto como el comportamiento que mides. La
+segunda enseña cuánto la mueve cada decisión que alguien tomó a ojo al construir el instrumento, que
+es información que casi ninguna herramienta de medida publica sobre sí misma.
 
 La primera vez, `--acciones`.
 
@@ -241,9 +245,9 @@ python skills/adherencia-reglas/medir_adherencia.py \
   --sesiones ejemplo/historial --reglas ejemplo/reglas_ejemplo.json
 ```
 
-The third way exists because the instrument does not need Claude Code to work: it is a standard
-library script that reads `.jsonl` files, and if all you want is the number, it hands it over
-without touching your configuration or leaving a trace in it.
+The third way exists because the instrument does not need Claude Code. It is a standard library
+script that reads `.jsonl` files. If all you want is the number, it hands it over without touching
+your configuration.
 
 ### Usage
 
@@ -252,11 +256,13 @@ cd skills/adherencia-reglas
 python medir_adherencia.py --sesiones "~/.claude/projects/MY-PROJECT"
 ```
 
-Replace `MY-PROJECT` with your folder name. Look inside `~/.claude/projects` and pick the project
-you want to measure. Keep the quotes: Claude Code builds that name from your working path and it
-can contain spaces. With no arguments it measures every project at once.
+Replace `MY-PROJECT` with your folder name. Look inside `~/.claude/projects`.
 
-These are the ten, which is all of them:
+Keep the quotes. Claude Code builds that name from your working path and it can contain spaces.
+
+With no arguments it measures every project at once.
+
+These are the ten options, which is all of them:
 
 | Option | What for |
 |---|---|
@@ -273,9 +279,10 @@ These are the ten, which is all of them:
 
 `--por-dia` takes a number: `--por-dia 7`. Without it the program stops and says so.
 
-The two that most change the reading are `--curva-ventana` and `--sensibilidad`. The first shows
-that the window you pick moves the figure as much as the behaviour you are measuring. The second
-shows how much each of the decisions someone made by eye while building the instrument moves it,
+The two that most change the reading are `--curva-ventana` and `--sensibilidad`.
+
+The first shows that the window you pick moves the figure as much as the behaviour you measure. The
+second shows how much each decision someone made by eye while building the instrument moves it,
 which is information almost no measuring tool publishes about itself.
 
 Start with `--acciones`.
