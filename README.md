@@ -5,7 +5,7 @@ historial que Claude Code ya guarda en tu disco, y te devuelve un porcentaje por
 
 ![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue)
 ![sin dependencias](https://img.shields.io/badge/dependencias-ninguna-brightgreen)
-![157 casos](https://img.shields.io/badge/banco-157%20casos-brightgreen)
+![160 casos](https://img.shields.io/badge/banco-160%20casos-brightgreen)
 ![mutación 15/15](https://img.shields.io/badge/mutaci%C3%B3n-15%2F15-brightgreen)
 ![licencia MIT](https://img.shields.io/badge/licencia-MIT-lightgrey)
 
@@ -177,7 +177,7 @@ configuración fuera de su carpeta.
 
 ### Por qué fiarse
 
-**157 casos en tres bancos**, todos sobre trazas fabricadas y nunca sobre el historial real, porque
+**160 casos en tres bancos**, todos sobre trazas fabricadas y nunca sobre el historial real, porque
 un banco que dependa de los datos de hoy cambia de resultado mañana.
 
 Y los tres están verificados por mutación, que es lo que separa un banco de un adorno:
@@ -203,9 +203,11 @@ biblioteca estándar, porque aquí no se instala nada.
 
 Python 3.9 o superior, biblioteca estándar, sin red y sin nada que instalar. En macOS y en casi
 todo Linux el intérprete se llama `python3`, no `python`: los comandos de esta página van con
-`python` porque se escribieron en Windows. Ese 3.9 está
-declarado, no certificado: lo único ejecutado hasta hoy es Python 3.14 y 3.13 en Windows, y quien
-lo certifica es la matriz de CI de este repositorio a partir de su primer verde.
+`python` porque se escribieron en Windows. Ese 3.9 está **certificado** desde el 27/07/2026: nueve
+trabajos en verde, con 3.9, 3.12 y 3.14 sobre Windows, Linux y Mac. Hasta esa mañana aquí ponía
+«declarado, no certificado», y era cierto. Dejó de serlo con el primer push y siguió publicado unas
+horas: una nota de humildad caduca igual que una cifra, y esta caducó en la dirección que hace
+parecer el paquete peor de lo que es.
 
 ---
 
@@ -338,7 +340,7 @@ configuration outside its own folder.
 
 ### Why trust it
 
-**157 cases across three benches**, all on fabricated traces and never on real history, because a
+**160 cases across three benches**, all on fabricated traces and never on real history, because a
 bench that depends on today's data returns something else tomorrow.
 
 And all three are mutation-verified, which is what separates a test bank from an ornament:
@@ -366,9 +368,11 @@ the standard library, because nothing gets installed here.
 
 Python 3.9 or newer, standard library, no network and nothing to install. On macOS and on most
 Linux the interpreter is called `python3`, not `python`: the commands on this page say `python`
-because they were written on Windows. That 3.9 is declared, not
-certified: the only thing run so far is Python 3.14 and 3.13 on Windows, and what certifies it is
-this repository's CI matrix from its first green build onward.
+because they were written on Windows. That 3.9 is **certified** as of 27/07/2026: nine green jobs
+across 3.9, 3.12 and 3.14 on Windows, Linux and Mac. Until that morning this line read «declared,
+not certified», which was true. It stopped being true on the first push and stayed up for a few
+hours: a note of humility goes stale like any other figure, and this one went stale in the direction
+that makes the package look worse than it is.
 
 ---
 
