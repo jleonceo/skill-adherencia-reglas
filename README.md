@@ -92,6 +92,7 @@ sin tocar tu configuración ni dejar rastro en ella.
 ### Uso
 
 ```bash
+cd skills/adherencia-reglas
 python medir_adherencia.py --sesiones "~/.claude/projects/MI-PROYECTO"
 ```
 
@@ -178,6 +179,7 @@ un banco que dependa de los datos de hoy cambia de resultado mañana.
 Y los tres están verificados por mutación, que es lo que separa un banco de un adorno:
 
 ```bash
+cd skills/adherencia-reglas
 python mutar.py
 ```
 
@@ -246,6 +248,7 @@ without touching your configuration or leaving a trace in it.
 ### Usage
 
 ```bash
+cd skills/adherencia-reglas
 python medir_adherencia.py --sesiones "~/.claude/projects/MY-PROJECT"
 ```
 
@@ -332,6 +335,7 @@ bench that depends on today's data returns something else tomorrow.
 And all three are mutation-verified, which is what separates a test bank from an ornament:
 
 ```bash
+cd skills/adherencia-reglas
 python mutar.py
 ```
 
