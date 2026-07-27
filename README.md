@@ -201,7 +201,9 @@ biblioteca estándar, porque aquí no se instala nada.
 
 ### Requisitos
 
-Python 3.9 o superior, biblioteca estándar, sin red y sin nada que instalar. Ese 3.9 está
+Python 3.9 o superior, biblioteca estándar, sin red y sin nada que instalar. En macOS y en casi
+todo Linux el intérprete se llama `python3`, no `python`: los comandos de esta página van con
+`python` porque se escribieron en Windows. Ese 3.9 está
 declarado, no certificado: lo único ejecutado hasta hoy es Python 3.14 y 3.13 en Windows, y quien
 lo certifica es la matriz de CI de este repositorio a partir de su primer verde.
 
@@ -362,7 +364,9 @@ the standard library, because nothing gets installed here.
 
 ### Requirements
 
-Python 3.9 or newer, standard library, no network and nothing to install. That 3.9 is declared, not
+Python 3.9 or newer, standard library, no network and nothing to install. On macOS and on most
+Linux the interpreter is called `python3`, not `python`: the commands on this page say `python`
+because they were written on Windows. That 3.9 is declared, not
 certified: the only thing run so far is Python 3.14 and 3.13 on Windows, and what certifies it is
 this repository's CI matrix from its first green build onward.
 
