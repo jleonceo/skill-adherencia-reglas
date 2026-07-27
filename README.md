@@ -10,9 +10,29 @@ historial que Claude Code ya guarda en tu disco, y te devuelve un porcentaje por
 ![licencia MIT](https://img.shields.io/badge/licencia-MIT-lightgrey)
 
 ```
-/plugin marketplace add jleonceo/adherencia-reglas-skill
-/plugin install adherencia-reglas@adherencia-reglas-skill
+/plugin marketplace add jleonceo/skill-adherencia-reglas
+/plugin install adherencia-reglas@skill-adherencia-reglas
 ```
+
+Esto es lo que devuelve. Sale del ejemplo que viaja dentro del repositorio, así que se reproduce
+tal cual con `python skills/adherencia-reglas/medir_adherencia.py --sesiones ejemplo/historial
+--reglas ejemplo/reglas_ejemplo.json`:
+
+```
+ADHERENCIA A LAS REGLAS PROPIAS  --  3 sesiones, 31 acciones
+============================================================================
+  regla                           tocaba  cumplio     tasa  umbral
+  ----------------------------------------------------------------------------
+  gate-tras-escribir-doc              11        8  72.7 %
+      guia del equipo: todo documento pasa el gate de texto antes de darlo por bueno
+  suite-tras-tocar-codigo              4        1  25.0 %*
+      guia del equipo: si tocas codigo, pasa la suite antes de cerrar
+
+(*) menos de 10 ocasiones: eso no es una tasa, es una anecdota con decimales.
+```
+
+Ese asterisco es medio paquete. Con cuatro ocasiones no hay tasa que valga, y una herramienta que
+te devuelve «25 %» sin decírtelo te está dando una anécdota con decimales disfrazada de medida.
 
 Este repositorio es solo el paquete instalable. La medición sobre historiales reales, con las
 cifras y el método, vive aparte: [jleonceo/adherencia-reglas](https://github.com/jleonceo/adherencia-reglas).
@@ -40,12 +60,12 @@ Tres vías. La primera es la corta y la última funciona siempre.
 
 ```bash
 # 1. Como plugin de Claude Code
-/plugin marketplace add jleonceo/adherencia-reglas-skill
-/plugin install adherencia-reglas@adherencia-reglas-skill
+/plugin marketplace add jleonceo/skill-adherencia-reglas
+/plugin install adherencia-reglas@skill-adherencia-reglas
 
 # 2. Copiando la carpeta a tus skills personales
-git clone https://github.com/jleonceo/adherencia-reglas-skill
-cp -r adherencia-reglas-skill/skills/adherencia-reglas ~/.claude/skills/
+git clone https://github.com/jleonceo/skill-adherencia-reglas
+cp -r skill-adherencia-reglas/skills/adherencia-reglas ~/.claude/skills/
 
 # 3. Sin instalar nada, ejecutando el script directamente
 python skills/adherencia-reglas/medir_adherencia.py
@@ -108,7 +128,7 @@ existe.
 
 ```bash
 # si la instalaste como plugin
-/plugin uninstall adherencia-reglas@adherencia-reglas-skill
+/plugin uninstall adherencia-reglas@skill-adherencia-reglas
 
 # si copiaste la carpeta
 rm -rf ~/.claude/skills/adherencia-reglas
@@ -162,15 +182,23 @@ Three ways. The first is the short one and the last always works.
 
 ```bash
 # 1. As a Claude Code plugin
-/plugin marketplace add jleonceo/adherencia-reglas-skill
-/plugin install adherencia-reglas@adherencia-reglas-skill
+/plugin marketplace add jleonceo/skill-adherencia-reglas
+/plugin install adherencia-reglas@skill-adherencia-reglas
 
 # 2. By copying the folder into your personal skills
-git clone https://github.com/jleonceo/adherencia-reglas-skill
-cp -r adherencia-reglas-skill/skills/adherencia-reglas ~/.claude/skills/
+git clone https://github.com/jleonceo/skill-adherencia-reglas
+cp -r skill-adherencia-reglas/skills/adherencia-reglas ~/.claude/skills/
 
 # 3. Without installing anything, running the script directly
 python skills/adherencia-reglas/medir_adherencia.py
+```
+
+The example that ships in `ejemplo/` runs without any history of your own, which is what the output
+block at the top of this page comes from:
+
+```bash
+python skills/adherencia-reglas/medir_adherencia.py \
+  --sesiones ejemplo/historial --reglas ejemplo/reglas_ejemplo.json
 ```
 
 The third way exists because the instrument does not need Claude Code to work: it is a standard
@@ -230,7 +258,7 @@ what it is for.
 
 ```bash
 # if you installed it as a plugin
-/plugin uninstall adherencia-reglas@adherencia-reglas-skill
+/plugin uninstall adherencia-reglas@skill-adherencia-reglas
 
 # if you copied the folder
 rm -rf ~/.claude/skills/adherencia-reglas
