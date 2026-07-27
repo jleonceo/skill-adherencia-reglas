@@ -204,7 +204,7 @@ biblioteca estándar, porque aquí no se instala nada.
 Python 3.9 o superior, biblioteca estándar, sin red y sin nada que instalar. En macOS y en casi
 todo Linux el intérprete se llama `python3`, no `python`: los comandos de esta página van con
 `python` porque se escribieron en Windows. Ese 3.9 está **certificado** desde el 27/07/2026: nueve
-trabajos en verde, con 3.9, 3.12 y 3.14 sobre Windows, Linux y Mac. Hasta esa mañana aquí ponía
+trabajos en verde, con 3.9, 3.11 y 3.13 sobre Windows, Linux y Mac. Hasta esa mañana aquí ponía
 «declarado, no certificado», y era cierto. Dejó de serlo con el primer push y siguió publicado unas
 horas: una nota de humildad caduca igual que una cifra, y esta caducó en la dirección que hace
 parecer el paquete peor de lo que es.
@@ -369,7 +369,7 @@ the standard library, because nothing gets installed here.
 Python 3.9 or newer, standard library, no network and nothing to install. On macOS and on most
 Linux the interpreter is called `python3`, not `python`: the commands on this page say `python`
 because they were written on Windows. That 3.9 is **certified** as of 27/07/2026: nine green jobs
-across 3.9, 3.12 and 3.14 on Windows, Linux and Mac. Until that morning this line read «declared,
+across 3.9, 3.11 and 3.13 on Windows, Linux and Mac. Until that morning this line read «declared,
 not certified», which was true. It stopped being true on the first push and stayed up for a few
 hours: a note of humility goes stale like any other figure, and this one went stale in the direction
 that makes the package look worse than it is.
