@@ -205,13 +205,25 @@ Python 3.9 o superior, biblioteca estándar, sin red y sin nada que instalar. En
 todo Linux el intérprete se llama `python3`, no `python`: los comandos de esta página van con
 `python` porque se escribieron en Windows. Ese 3.9 está **certificado** desde el 27/07/2026: nueve
 trabajos en verde, con 3.9, 3.11 y 3.13 sobre Windows, Linux y Mac. Hasta esa mañana aquí ponía
-«declarado, no certificado», y era cierto. Dejó de serlo con el primer push y siguió publicado unas
-horas: una nota de humildad caduca igual que una cifra, y esta caducó en la dirección que hace
-parecer el paquete peor de lo que es.
+«declarado, no certificado». Era cierto al escribirlo y dejó de serlo con el primer push, pero
+siguió publicado unas horas. Una nota de humildad caduca igual que una cifra. Esta caducó hacia el
+lado que hace parecer el paquete peor de lo que es.
 
 ---
 
 ## English
+
+> **Read this first: the tool speaks Spanish, this page does not change that.** Nine of its ten
+> flags, all its configuration keys, the literal values `antes` and `despues`, the fifteen action
+> verbs and every line it prints are in Spanish. A rule written with English keys is rejected,
+> loudly and in Spanish. This page is the reference for that vocabulary, not a localised program.
+>
+> The verbs: `git-commit` · `git-add` · `git-push` · `git-mirar` (inspect) · `test` · `shell` ·
+> `leer-doc` (read a document) · `leer-codigo` (read code) · `escribir-doc` · `escribir-codigo` ·
+> `buscar` (search) · `subagente` · `escribir-doctrina` · `leer-skill` · `leer-rag`. Direction takes
+> `antes` or `despues`; the window is `ventana`, the start date `desde`, the scope `ambito` and the
+> pass mark `umbral`.
+
 
 ### What it does
 
@@ -370,8 +382,8 @@ Python 3.9 or newer, standard library, no network and nothing to install. On mac
 Linux the interpreter is called `python3`, not `python`: the commands on this page say `python`
 because they were written on Windows. That 3.9 is **certified** as of 27/07/2026: nine green jobs
 across 3.9, 3.11 and 3.13 on Windows, Linux and Mac. Until that morning this line read «declared,
-not certified», which was true. It stopped being true on the first push and stayed up for a few
-hours: a note of humility goes stale like any other figure, and this one went stale in the direction
+not certified». It was true when written and stopped being true on the first push, yet it stayed up
+for hours. A note of humility goes stale like any other figure. This one went stale towards the side
 that makes the package look worse than it is.
 
 ---
