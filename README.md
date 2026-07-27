@@ -5,7 +5,7 @@ historial que Claude Code ya guarda en tu disco, y te devuelve un porcentaje por
 
 ![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue)
 ![sin dependencias](https://img.shields.io/badge/dependencias-ninguna-brightgreen)
-![155 casos](https://img.shields.io/badge/banco-155%20casos-brightgreen)
+![157 casos](https://img.shields.io/badge/banco-157%20casos-brightgreen)
 ![mutación 15/15](https://img.shields.io/badge/mutaci%C3%B3n-15%2F15-brightgreen)
 ![licencia MIT](https://img.shields.io/badge/licencia-MIT-lightgrey)
 
@@ -177,7 +177,7 @@ configuración fuera de su carpeta.
 
 ### Por qué fiarse
 
-**155 casos en tres bancos**, todos sobre trazas fabricadas y nunca sobre el historial real, porque
+**157 casos en tres bancos**, todos sobre trazas fabricadas y nunca sobre el historial real, porque
 un banco que dependa de los datos de hoy cambia de resultado mañana.
 
 Y los tres están verificados por mutación, que es lo que separa un banco de un adorno:
@@ -336,7 +336,7 @@ configuration outside its own folder.
 
 ### Why trust it
 
-**155 cases across three benches**, all on fabricated traces and never on real history, because a
+**157 cases across three benches**, all on fabricated traces and never on real history, because a
 bench that depends on today's data returns something else tomorrow.
 
 And all three are mutation-verified, which is what separates a test bank from an ornament:
