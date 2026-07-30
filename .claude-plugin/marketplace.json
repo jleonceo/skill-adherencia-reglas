@@ -1,5 +1,6 @@
 {
   "name": "skill-adherencia-reglas",
+  "description": "Skill instalable para medir la adherencia real a las reglas de un agente, con la herramienta y el método en el repositorio adherencia-reglas.",
   "owner": {
     "name": "Juan Luis León Rodríguez"
   },
