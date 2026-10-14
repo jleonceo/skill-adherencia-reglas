@@ -1,5 +1,8 @@
 # adherencia-reglas
 
+> Este repositorio es el paquete que se instala como plugin de Claude Code. El método y las cifras están en [adherencia-reglas](https://github.com/jleonceo/adherencia-reglas).  
+> *This repository is the package you install as a Claude Code plugin. The method and the figures are in [adherencia-reglas](https://github.com/jleonceo/adherencia-reglas).*
+
 **Escribes reglas para tu agente de IA y no sabes si las cumple. Esta skill lo cuenta sobre el
 historial que Claude Code ya guarda en tu disco, y te devuelve un porcentaje por regla.**
 
