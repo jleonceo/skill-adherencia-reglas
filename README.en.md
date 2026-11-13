@@ -20,6 +20,20 @@ Versión en español: [README.md](README.md)
 
 ## What it does
 
+```mermaid
+flowchart TD
+    H[Session history<br/>Claude Code already keeps] --> V[1. Each tool call<br/>becomes a verb]
+    V --> C[2. Back-to-back repeats<br/>count as one occasion]
+    C --> O[3. Occasions<br/>each time the trigger appears]
+    O --> W{4. Does the response arrive<br/>within the window?}
+    W -->|Yes| CU[Kept]
+    W -->|No| IN[Not kept]
+    CU & IN --> T[Rate: kept over occasions]
+    style W fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    style CU fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    style IN fill:#ffebee,stroke:#c62828,color:#b71c1c
+```
+
 It counts occasions and responses.
 
 One of your rules has a trigger (writing a document, closing a working day, touching a skill) and

@@ -51,6 +51,21 @@ cifras y el método, vive aparte: [jleonceo/adherencia-reglas](https://github.co
 
 ## Qué hace
 
+```mermaid
+flowchart TD
+    H[Historial de sesiones<br/>que Claude Code ya guarda] --> V[1. Cada llamada a herramienta<br/>se traduce a un verbo]
+    V --> C[2. Las repeticiones seguidas<br/>cuentan como una ocasión]
+    C --> O[3. Ocasiones<br/>cada aparición del disparador]
+    O --> W{4. ¿Llega la respuesta<br/>dentro de la ventana?}
+    W -->|Sí| CU[Cumplida]
+    W -->|No| IN[Incumplida]
+    CU & IN --> T[Tasa: cumplidas entre ocasiones]
+    style W fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    style CU fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    style IN fill:#ffebee,stroke:#c62828,color:#b71c1c
+```
+
+
 Cuenta ocasiones y respuestas.
 
 Una regla tuya tiene un disparador (escribir un documento, cerrar una jornada, tocar una skill) y
