@@ -2,6 +2,8 @@ Versión en español: [README.md](README.md)
 
 # adherencia-reglas
 
+[![ci](https://github.com/jleonceo/skill-adherencia-reglas/actions/workflows/ci.yml/badge.svg)](https://github.com/jleonceo/skill-adherencia-reglas/actions/workflows/ci.yml)
+
 > This repository is the package you install as a Claude Code plugin. The method and the figures are in [adherencia-reglas](https://github.com/jleonceo/adherencia-reglas).
 
 > **Read this first: the tool speaks Spanish, this page does not change that.** Nine of its ten

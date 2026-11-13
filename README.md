@@ -2,6 +2,8 @@ English version: [README.en.md](README.en.md)
 
 # adherencia-reglas
 
+[![ci](https://github.com/jleonceo/skill-adherencia-reglas/actions/workflows/ci.yml/badge.svg)](https://github.com/jleonceo/skill-adherencia-reglas/actions/workflows/ci.yml)
+
 > Este repositorio es el paquete que se instala como plugin de Claude Code. El método y las cifras están en [adherencia-reglas](https://github.com/jleonceo/adherencia-reglas).
 
 **Escribes reglas para tu agente de IA y no sabes si las cumple. Esta skill lo cuenta sobre el
